@@ -6,11 +6,11 @@ import cv2
 import math
 import time
 
-consumer_key = 'n9V8crjVTE7girPs8jfTz1oUA'
-consumer_secret = '09GiBlvehx6BH6WwTIUHbEpiI0N17Oywqxu1qQPY7RYdVeK7Or'
+consumer_key = ''
+consumer_secret = ''
 
-key = '1341144942899544067-Cuva70unD1HJpoC6pZVB4opSikw824'
-secret = '5CFJ0PfWLchR1KfRcpQK8SEKIH0XCltUPucmEbe5PCpDm'
+key = ''
+secret = ''
 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(key, secret)

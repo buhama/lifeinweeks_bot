@@ -1,7 +1,6 @@
 import tweepy
 import re
 from datetime import datetime
-#import numpy as np
 import cv2
 import math
 import time
@@ -15,7 +14,6 @@ secret = ''
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(key, secret)
 api = tweepy.API(auth, wait_on_rate_limit=True)
-#api = tweepy.API(auth, wait_on_rate_limit=True)
 
 
 FILE_NAME2 = 'last_seen2.txt'
@@ -35,8 +33,6 @@ def store_last_seen2(FILE_NAME2, last_seen_id2):
 hashtag = "#feelingold"
 tweetNumber = 500
 
-
-
 def searchBot():
 
     latest_tweet = read_last_seen2(FILE_NAME2)
@@ -44,7 +40,6 @@ def searchBot():
 
     for tweet in tweets:
         try:
-            #api.update_status("@" + tweet.user.screen_name + " Feeling old? Well, I can make you feel worse, use this bot to visualize how long you've been alive in weeks. You just have to @ me with your birthday in the format YYYY-MM-DD. We are not responsible for any life crises or panic attacks that come after.", tweet.id)
             print(tweet.id)
             time.sleep(180)
         except tweepy.TweepError as e:
@@ -52,7 +47,6 @@ def searchBot():
             time.sleep(15)
         #switches out the last seen tweet id
         store_last_seen2(FILE_NAME2, tweet.id)        
-
 
 FILE_NAME = 'last_seen.txt'
 
@@ -157,10 +151,10 @@ def reply():
 
 
                     #sends the tweet
-                    #api.update_status("@" + tweet.user.screen_name + 
-                    #" Heyooo!! You've been alive for " + str(round(weeks_alive)) + "week. Here's a graphical representation of your life in weeks you've lived and how many you've got left until 90. #lifeinweeks", 
-                   # tweet.id, media_ids=[media.media_id])
-                    #api.create_favorite(tweet.id)
+                    api.update_status("@" + tweet.user.screen_name + 
+                    " Heyooo!! You've been alive for " + str(round(weeks_alive)) + "week. Here's a graphical representation of your life in weeks you've lived and how many you've got left until 90. #lifeinweeks", 
+                    tweet.id, media_ids=[media.media_id])
+                    api.create_favorite(tweet.id)
                     
             except AttributeError:
                 print("Wrong date")
